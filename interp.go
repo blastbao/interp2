@@ -26,6 +26,7 @@ func (e *ArithExpr) Evaluate() interface{} {
 			return s1 + s2
 		}
 	}
+
 	{
 		lhs := lhs.(Number)
 		rhs := rhs.(Number)
@@ -45,8 +46,10 @@ func (e *ArithExpr) Evaluate() interface{} {
 }
 
 func (e *RelExpr) Evaluate() interface{} {
+
 	lhs := e.lhs.Evaluate()
 	rhs := e.rhs.Evaluate()
+
 
 	if lhs, ok := lhs.(String); ok {
 		rhs := rhs.(String)
@@ -61,6 +64,7 @@ func (e *RelExpr) Evaluate() interface{} {
 			panic("unreached")
 		}
 	}
+
 	{
 		lhs := lhs.(Number)
 		rhs := rhs.(Number)
